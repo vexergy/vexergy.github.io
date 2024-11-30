@@ -19,6 +19,7 @@ a {
 
 img {
     width: 100%;
+    border-radius: 25px;
 }
 
 small {
@@ -94,3 +95,66 @@ section {
     background-color: #00000063;
     margin: 16px auto 0 auto;
 }
+
+.product-container { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding-bottom: 100px;
+} 
+
+.product-container img { 
+    margin: 0 20px;
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.product-container img:first-child {
+    margin-left: 20px;
+}
+
+.product-container img:last-child {
+    margin-right: 20px;
+}
+
+@media (max-width: 850px) { 
+    .product-container img { 
+        width: calc(100% / 3 - 20px);  
+        max-width: none; 
+        margin: 10px; 
+    } 
+}
+
+#products p {
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.accordion {
+    --bs-accordion-btn-bg: #4ea72ead;
+    --bs-accordion-active-bg: #4ea72e;
+    --bs-accordion-btn-focus-box-shadow: none;
+    --bs-accordion-active-color: #000000;
+    --bs-accordion-border-color: #ffffff;
+    width: 50%;
+    margin: auto;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-size: 120%;
+    transform: none;
+    --bs-accordion-btn-icon-width: 50px;
+  }
+
+.accordion-button.vfd::after { background-image: #ffffff; } 
+    
+.accordion-button.vfd:not(.collapsed)::after { background-image: url("../images/vexergy-vfd.png");} 
+
+.accordion-button.carbon::after { background-image: #ffffff; } 
+
+.accordion-button.carbon:not(.collapsed)::after { background-image: url("../images/vexergy-carbon.png"); } 
+
+.accordion-button.fuel::after { background-image: #ffffff; } 
+
+.accordion-button.fuel:not(.collapsed)::after { background-image: url("../images/vexergy-fuel.png"); }
+

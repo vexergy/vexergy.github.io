@@ -8,12 +8,13 @@
     <link rel="icon" type="image/ico" href="images/vexergy-favicon.ico">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
 
   <body data-bs-spy="scroll" data-bs-target=".navbar">
     <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#about">
+          <a class="navbar-brand" href="#home">
             <img src="images/vexergy-logo-full.png" alt="Vexergy" width="65" height="50">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,6 +35,9 @@
                 <a class="nav-link" href="#clients">Clients</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="#integrations">Integrations</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#pricing">Pricing</a>
               </li>
               <li class="nav-item dropdown">
@@ -41,8 +45,8 @@
                   About
                 </a>
                 <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#about">Who We Are</a></li>
                   <li><a class="dropdown-item" href="#team">Our Team</a></li>
-                  <li><a class="dropdown-item" href="#partners">Partners</a></li>
                   <li><a class="dropdown-item" href="#contact">Contact Us</a></li>
             </ul>
           </div>
@@ -53,7 +57,7 @@
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-md-10">
-                    <h1 class="text-white display-4">"Data Analytics as a Service" for the Energy Sector</h1>
+                    <h1 class="text-white display-4">Data Analytics as a Service for the Energy Sector</h1>
                     <p>Pioneering Data-Driven Sustainability & Energy Efficiency</p>
                     <a href="#products" class="btn btn-brand">Learn More</a>
                 </div>
@@ -67,9 +71,14 @@
           <div class="col-12 section-intro">
             <h1>Our Products</h1>
             <div class="hline"></div>
-            <p>The Vexergy™ Ecosystem is built on our cloud-based progressive web application (PWA) which offers offline functionality and cross-platform compatibility.</p>
+            <p>The Vexergy™ Ecosystem provides a comprehensive suite of data analytics software products, tools, and integrations covering numerous applications across the energy industry.</p>
             <br> 
-            <p>Explore Vexergy™ Marketplace to gain access to a growing suite of modules, integrations, and tools for a variety of energy data analysis use cases. Our flagship products include the <strong>VFD Savings Module, Carbon Sequestration Performance Module, and Fuel Consumption Module.</strong></p>
+            <div class="ecosystem-container">
+              <img src="images/vexergy-ecosystem.png" alt="Ecosystem">
+            </div>
+            <br>
+            <p>Explore a growing selection of Software as a Service (SaaS) products through our cloud-based progressive web app (PWA) which offers offline functionality and cross-platform compatibility. 
+              Flagship products include our <strong>VFD Savings Module, Carbon Sequestration Performance Module, and Fuel Consumption Module.</strong></p>
           </div>
         </div>
       </div>
@@ -100,7 +109,7 @@
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                Calculate efficiency and effectiveness of carbon capture devices. Analyze the reduction of greenhouse gas (GHG) emissions and carbon footprint in energy-intensive buildings.
+                Calculate efficiency and effectiveness of carbon capture devices. Analyze the reduction of greenhouse gas (GHG) emissions and carbon footprint in energy-intensive buildings. Ensure CO2 emission compliance with local laws and avoid penalties.
               </div>
             </div>
           </div>
@@ -117,19 +126,219 @@
             </div>
           </div>
         </div>
+    </section>
 
-        <section id="services">
-          <div class="container">
-            <div class="row">
-              <div class="col-12 section-intro">
-                <h1>Our Services</h1>
-                <div class="hline"></div>
-                
+    <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 section-intro">
+            <h1>Our Services</h1>
+            <div class="hline"></div>
+            <div class="services-container">
+              <img src="images/vexergy-services.png" alt="Services">
+              <p><em>* Note that custom applications or integrations tailored to your use case may eventually be added to Vexergy™ Marketplace following sufficient testing</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="clients">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 section-intro">
+            <h1>Our Clients</h1>
+            <div class="hline"></div>
+            <p>Our solutions serve countless energy-related applications for enterprises and institutions including <strong>Utility Providers, Engineering Firms, Technology Companies, Contractors, and more.</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="integrations">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 section-intro">
+            <h1>Integrations & Technologies</h1>
+            <div class="hline"></div>
+            <div class="integrations-container">
+              <img src="images/vexergy-integrations.png" alt="Integrations">
+              <p>TensorFlow, the TensorFlow logo and any related marks are trademarks of Google Inc.</p>
+              <p>PyTorch, the PyTorch logo and any related marks are trademarks of The Linux Foundation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 section-intro">
+            <h1>Pricing</h1>
+            <div class="hline"></div>
+            <p>Our solutions serve countless energy-related applications for enterprises and institutions including <strong>Utility Providers, Engineering Firms, Technology Companies, Contractors, and more.</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="pricing-container">
+        <div class="card-deck mb-3 text-center">
+          <div class="card mb-4 box-shadow">
+            <div class="card-header">
+              <h4 class="my-0 font-weight-normal">Pro</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">$49.99 <small class="text-muted">/ mo</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Up to 3 Vexergy™ Marketplace Modules</li>
+                <li>Limited File Upload Size (100MB)</li>
+                <li>Less Available Integrations</li>
+                <li>Free Access to Docs/Support</li>
+              </ul>
+              <button type="button" class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#contactModal">
+                Get Started
+              </button>
+            </div>
+          </div>
+          <div class="card mb-4 box-shadow">
+            <div class="card-header">
+              <h4 class="my-0 font-weight-normal">Enterprise</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">$99.99 <small class="text-muted">/ mo</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Full Access to Vexergy™ Marketplace</li>
+                <li>Upload Files >100MB</li>
+                <li>Custom Software Consultation</li>
+                <li>Vexergy™ SDK & Dev Tools</li>
+              </ul>
+              <button type="button" class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#contactModal">
+                Contact Us
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 section-intro">
+            <h1>About Us</h1>
+            <div class="hline"></div>
+            <p>At Vexergy™ we strive to apply an engineering approach combined with data science principles to provide data-driven solutions for your energy business. 
+              <strong>Our mission is simple: become the world's leading energy data analytics platform.</strong>
+              Our software ecosystem offers a cost-effective, scalable, and streamlined solution for your specialized data analysis needs without having to outsource to other companies or spend time and money to develop internal tools. 
+              Additionally, you can take advantage of extensive integrations, flexible subsciption-based pricing model, and secured real-time data processing to maximize your productivity. 
+              Partner with us to make an impact using data insights to build a sustainable, more efficient energy future.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="row g-0 py-0 text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 section-intro">
+            <h1>Our Team</h1>
+            <div class="hline"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 team-member">
+        <div class="team-member-image">
+          <img src="images/vexergy-founder-jeffrey-laederach.jpg" alt="JL">
+          <div class="social-media-icons">
+            <a href="https://www.linkedin.com/in/jeffrey-laederach"><i class="bi bi-linkedin" style="font-size: 2rem; color: #ffffff;"></i></a>
+            <a href="https://github.com/JeffreyLaederach"><i class="bi bi-github" style="font-size: 2rem; color: #ffffff;"></i></a>
+          </div>
+        </div>
+        <div class="p-4">
+          <h2 class="title-sm mt-3 mb-0">Jeffrey Laederach</h2>
+          <small>Founder & CEO</small>
+          <div class="hline"></div>
+          <p>Pursuing a B.S. in Mechanical Engineering with a Concentration in Applied Mathematics and Minor in Business at Manhattan University.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-5">
+      <div class="container py-4">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <h3 class="text-white">Transform your energy data analysis <em>today.</em></h3>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#contactModal">
+              Contact Us
+            </button>
+          </div>
+          <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="contactModalLabel">Contact Us</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  For all inquiries regarding software beta testing, partnerships, careers, and more, please message us on LinkedIn. Thanks!
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-brand" data-bs-dismiss="modal">Close</button>
+                </div>
               </div>
             </div>
           </div>
-
+        </div>
+      </div>
     </section>
+
+    <footer>
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="images/vexergy-logo-full.png" alt="Vexergy">
+              <p>Data Analytics as a Service for the Energy Sector</p>
+              <div class="social-media-icons">
+                <a href="https://www.linkedin.com/company/vexergy"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
+                <a href="https://github.com/vexergy"><i class="bi bi-github" style="font-size: 2rem;"></i></a>
+                <a href="https://x.com/vexergy_dev"><i class="bi bi-twitter-x" style="font-size: 2rem;"></i></a>
+              </div>
+            
+            </div>
+            <div class="col-md-2">
+              <h5 class="title-sm">Overview</h5>
+              <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#services">Services</a>
+                <a href="#clients">Clients</a>
+                <a href="#integrations">Integrations</a>
+                <a href="#pricing">Pricing</a>
+              </div>
+          </div>
+          <div class="col-md-2">
+            <h5 class="title-sm">Company</h5>
+            <div class="footer-links">
+              <a href="#about">About</a>
+              <a href="#team">Team</a>
+              <a href="#contact">Contact</a>
+            </div>
+        </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row justify-content-between">
+           <div class="col-md-6">
+            <p class="mb-0">Copyright © 2023-2024 Vexergy™ - All Rights Reserved.</p>
+           </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
 

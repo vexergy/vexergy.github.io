@@ -62,8 +62,11 @@ section {
 }
 
 #home p {
+    padding-top: 15px;
     font-weight: 400;
     font-size: 25px;
+    color: #616571;
+    line-height: 1.5;
 }
 
 .btn {
@@ -142,6 +145,18 @@ section {
     --bs-accordion-border-color: #ffffff;
     width: 50%;
     margin: auto;
+}
+
+@media (max-width: 768px) { 
+    .accordion { 
+        width: 80%;
+    } 
+} 
+
+@media (max-width: 576px) { 
+    .accordion { 
+        width: 95%;
+    } 
 }
 
 .accordion-button:not(.collapsed)::after {
@@ -270,7 +285,6 @@ section {
 
 .footer-top {
     padding-top: 80px;
-    padding-bottom: 40px;
     font-weight: 400;
     font-size: 18px;
 }
@@ -284,12 +298,16 @@ section {
     width: 300px;
 }
 
+.footer-top .container .row {
+    padding-bottom: 30px;
+}
+
 .footer-bottom {
     padding-top: 30px;
-    padding-bottom: 30px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     font-weight: 400;
     font-size: 15px;
+    background-color: #F8F9FA;
 }
 
 footer .footer-links a,

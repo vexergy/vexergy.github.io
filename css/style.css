@@ -203,6 +203,10 @@ section {
     font-size: 25px;
 }
 
+.industries-container img { 
+    border-radius: 25px;
+}
+
 #integrations {
     padding-bottom: 1px;
 }
@@ -244,7 +248,7 @@ section {
 
 #team p {
     font-weight: 400;
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .team-member .team-member-image img,

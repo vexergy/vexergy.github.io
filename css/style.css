@@ -260,6 +260,19 @@ section {
 .team-member .team-member-image {
     position: relative;
     overflow: hidden;
+    height: 0; 
+    padding-bottom: 150%;
+}
+
+.team-member .team-member-bg { 
+    transition: all 0.4s ease;
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-size: cover; 
+    background-position: center; 
 }
 
 .team-member .team-member-image .social-media-icons {
@@ -279,7 +292,7 @@ section {
     bottom: 0;
 }
 
-.team-member:hover img {
+.team-member:hover .team-member-bg {
     transform: translateY(-60px);
 }
 
@@ -318,6 +331,16 @@ footer .footer-links a,
 
 footer .social-media-icons a {
     color: #4EA72E;
+}
+
+.dev-icon svg { 
+    width: 32px; 
+    height: 32px; 
+    margin-bottom: 15px;
+}
+
+.dev-icon:hover .icon-path { 
+    fill: #60bc3f; 
 }
 
 footer .footer-links a {

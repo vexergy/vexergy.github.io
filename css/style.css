@@ -327,20 +327,23 @@ section {
     background-color: #F8F9FA;
 }
 
-footer .footer-links a,
-
-footer .social-media-icons a {
+footer .footer-links a {
     color: #4EA72E;
 }
 
+footer .social-media-icons a {
+    color: #000000;
+}
+
 .dev-icon svg { 
-    width: 32px; 
-    height: 32px; 
+    width: 37px; 
+    height: 37px; 
     margin-bottom: 15px;
 }
 
 .dev-icon:hover .icon-path { 
-    fill: #60bc3f; 
+    fill: #4EA72E; 
+    transition: all 0.4s ease;
 }
 
 footer .footer-links a {

@@ -40,28 +40,36 @@ document.querySelectorAll('.product-container .clickable').forEach(img => {
 
 let mybutton = document.getElementById("backToTopBtn");
 
-// When user scrolls down 20px from the top of the page, show button
+// Check if device is a mobile device
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+// When user scrolls down 20px from top of page, show button (only if not on mobile)
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    if (!isMobile && (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)) {
         mybutton.style.display = "block";
     } else {
         mybutton.style.display = "none";
     }
 }
 
-// When user clicks on button, scroll to top of page smoothly
+// Initially hide button on mobile devices
+if (isMobile) {
+    mybutton.style.display = "none";
+}
+
+// When user clicks on button, scroll to top of page smoothly (only if not mobile)
 function topFunction() {
-    scrollToTop();
+    if (!isMobile) {
+        scrollToTop();
+    }
 }
 
 function scrollToTop() {
     const c = document.documentElement.scrollTop || document.body.scrollTop;
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
     if (c > 0) {
         window.requestAnimationFrame(scrollToTop);
-        window.scrollTo(0, isMobile ? c - c / 4 : c - c / 8); // Faster scroll for mobile devices
+        window.scrollTo(0, c - c / 8);
     }
 }

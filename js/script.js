@@ -54,7 +54,6 @@ function scrollFunction() {
     }
 }
 
-// Initially hide button on mobile devices
 if (isMobile) {
     mybutton.style.display = "none";
 }

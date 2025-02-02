@@ -64,8 +64,8 @@ const colorList = [
     { "desc": "Vexergy Dark Mode", "color": "#212529" },
     { "desc": "Vexergy Neutral Dark", "color": "#898fa1" },
     { "desc": "Vexergy Neutral Light", "color": "#f8f9fa" },
+    { "desc": "Monochrome Gray", "color": "#d5d5d5" },
     { "desc": "Monochrome Black", "color": "#000000" },
-    { "desc": "Monochrome Gray", "color": "#858585" },
     { "desc": "Monochrome White", "color": "#ffffff" }
 ];
 

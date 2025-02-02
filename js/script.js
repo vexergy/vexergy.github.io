@@ -40,26 +40,28 @@ document.querySelectorAll('.product-container .clickable').forEach(img => {
 
 let mybutton = document.getElementById("backToTopBtn");
 
-// When user scrolls down 20px from the top of the document, show button
+// When user scrolls down 20px from the top of the page, show button
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         mybutton.style.display = "block";
     } else {
         mybutton.style.display = "none";
     }
 }
 
-// When user clicks on button, scroll to top of document smoothly
+// When user clicks on button, scroll to top of page smoothly
 function topFunction() {
     scrollToTop();
 }
 
 function scrollToTop() {
     const c = document.documentElement.scrollTop || document.body.scrollTop;
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
     if (c > 0) {
         window.requestAnimationFrame(scrollToTop);
-        window.scrollTo(0, c - c / 8);
+        window.scrollTo(0, isMobile ? c - c / 4 : c - c / 8); // Faster scroll for mobile devices
     }
 }

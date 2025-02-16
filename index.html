@@ -87,24 +87,40 @@
             </div>
             <br>
             <p>Explore a growing selection of Software as a Service (SaaS) products directly from our web app dashboard. Upload your data and gain valuable insights with the click of a button.
-              Flagship products include our <strong>VFD Savings Module, Carbon Sequestration Performance Module, and Fuel Consumption Module.</strong></p>
+              Learn more about our flagship modules providing specialized analyses for your energy needs.</p>
           </div>
         </div>
       </div>
         <div class="product-container">
-            <img src="images/vexergy-vfd.png" alt="VFD" class="clickable" data-target="#collapseOne">
-            <img src="images/vexergy-carbon.png" alt="Carbon" class="clickable" data-target="#collapseTwo">
-            <img src="images/vexergy-fuel.png" alt="Fuel" class="clickable" data-target="#collapseThree">
+            <img src="images/vexergy-heat-pump.png" alt="Heat Pump" class="clickable" data-target="#collapseOne">
+            <img src="images/vexergy-vfd.png" alt="VFD" class="clickable" data-target="#collapseTwo">
+            <img src="images/vexergy-carbon.png" alt="Carbon" class="clickable" data-target="#collapseThree">
+            <img src="images/vexergy-fuel.png" alt="Fuel" class="clickable" data-target="#collapseFour">
+            <img src="images/vexergy-water.png" alt="Fuel" class="clickable" data-target="#collapseFive">
+            <img src="images/vexergy-utility-bill.png" alt="Fuel" class="clickable" data-target="#collapseSix">
+            <img src="images/vexergy-energy-project.png" alt="Fuel" class="clickable" data-target="#collapseSeven">
         </div>
         
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button vfd" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Variable Frequency Drive (VFD) Savings Module
+              <button class="accordion-button heat-pump" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Heat Pump Efficiency Module
               </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Calculate the Ideal/Actual Coefficient of Performance (COP), Energy Efficiency Ratio (EER), and Seasonal Energy Efficiency Ratio (SEER) of a heat pump system based on thermostat raw data and power consumption.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button vfd collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Variable Frequency Drive (VFD) Savings Module
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 Review critical data regarding VFD operating speed/frequency, power consumption, and equipment loads in a building. Accurately predict future energy savings based on frequency curtailment trends.
               </div>
@@ -112,25 +128,61 @@
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button carbon collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <button class="accordion-button carbon collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 Carbon Sequestration Performance Module
               </button>
             </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                Calculate efficiency and effectiveness of carbon capture devices. Analyze the reduction of greenhouse gas (GHG) emissions and carbon footprint in energy-intensive buildings. Ensure compliance with local CO2 emission laws and avoid penalties.
+                Determine efficiency and effectiveness of carbon capture devices. Analyze the reduction of greenhouse gas (GHG) emissions and carbon footprint in energy-intensive buildings. Ensure compliance with local CO2 emission laws and avoid penalties.
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button fuel collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <button class="accordion-button fuel collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 Fuel Consumption Module
               </button>
             </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 Analyze IoT sensor data for fuel tank levels (oil, propane, diesel, gasoline, etc.) to identify usage rate over time. Predict future fuel consumption based on past trends. Account for seasonal/economic factors impacting fuel use.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button water collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Water Management Module
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Explore water usage patterns and consumption rates across reservoirs, aqueducts, treatment plants, pumping stations, and buildings. Identify leaks, monitor water quality, and predict future water usage based on historical data. Ensure compliance with local water conservation laws.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button utility-bill collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                Utility Bill Analysis Module
+              </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Parse utility bills (electric, natural gas, water, heating oil) to extract key data points, calculate total costs, and analyze trends over time. Identify billing errors, forecast future utility expenses, and determine how to optimize energy usage to reduce costs.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button energy-project collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                Energy Project Evaluation Module
+              </button>
+            </h2>
+            <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Track the progress of energy efficiency projects, retrofits, and upgrades. Monitor energy savings, ROI, IRR, NPV, XIRR, XNPV and payback period. Compare actual results to projected outcomes based on key performance indicators (KPI).
               </div>
             </div>
           </div>
@@ -271,7 +323,7 @@
           <h2 class="title-sm mt-3 mb-0">Jeffrey Laederach</h2>
           <small>Founder & Product Lead</small>
           <div class="hline"></div>
-          <p>Pursuing a B.S. in Mechanical Engineering with a concentration in Applied Math at Manhattan University and experienced in Energy Analysis.</p>
+          <p>Pursuing a B.S. in Mechanical Engineering with a concentration in Applied Mathematics at Manhattan University and experienced in Energy Management.</p>
         </div>
       </div>
       </div>
@@ -287,7 +339,22 @@
           <h2 class="title-sm mt-3 mb-0">Paul Harrison</h2>
           <small>Sales and Business Operations Lead</small>
           <div class="hline"></div>
-          <p>Pursuing a B.S. in Electrical Engineering with a minor in Business at Manhattan University, with experience in the Energy Consulting Industry.</p>
+          <p>Pursuing a B.S. in Electrical Engineering and a minor in Business at Manhattan University, with experience in the Energy Consulting Industry.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 team-member">
+        <div class="team-member-image">
+          <div class="team-member-bg" style="background-image: url('images/vexergy-julianna-perucci.jpg');"></div>
+          <div class="social-media-icons">
+            <a href="https://www.linkedin.com/in/julianna-perucci"><i class="bi bi-linkedin" style="font-size: 2rem; color: #ffffff;"></i></a>
+            <a href="https://github.com/jperucci"><i class="bi bi-github" style="font-size: 2rem; color: #ffffff;"></i></a>
+          </div>
+        </div>
+        <div class="p-4">
+          <h2 class="title-sm mt-3 mb-0">Julianna Perucci</h2>
+          <small>Data Science Lead</small>
+          <div class="hline"></div>
+          <p>Pursuing a B.S. in Data Science at Boston University with a minor in Public Health and experienced in Data Analysis and Machine Learning.</p>
         </div>
       </div>
       <div class="col-lg-3 col-sm-6 team-member team-member-special">
@@ -295,7 +362,8 @@
             <h2 class="title-sm mt-3 mb-0"></h2>
             <div class="hline"></div>
             <small>Interested in joining our team?</small>
-            <p>We are a fast-paced and dynamic tech startup looking for highly motivated, hard-working, flexible, and accomplished go-getters.</p>
+            <p>We are a fast-paced, dynamic tech startup looking for highly motivated, flexible, and accomplished go-getters. If you are passionate about problem solving, 
+              determined in applying your skills and talents to make a meaningful impact on the world, and value integrity, perseverance, and a strong work ethic, then Vexergy™ is the place for you!</p>
             <a href="https://www.linkedin.com/company/vexergy/jobs" class="btn btn-brand">Apply Now</a>
         </div>
     </div>
@@ -353,7 +421,7 @@
               </div>
             
             </div>
-            <div class="col-md-2">
+            <div class="col-md">
               <h5 class="title-sm">Overview</h5>
               <div class="footer-links">
                 <a href="#home">Home</a>
@@ -364,7 +432,7 @@
                 <a href="#pricing">Pricing</a>
               </div>
           </div>
-          <div class="col-md-2">
+          <div class="col-md">
             <h5 class="title-sm">Company</h5>
             <div class="footer-links">
               <a href="#about">About</a>
@@ -372,7 +440,17 @@
               <a href="#contact">Contact</a>
               <a href="https://www.linkedin.com/company/vexergy/jobs">Careers</a>
               <a href="palette/index.html">Palette</a>
+              <a href="brand/index.html">Brand</a>
             </div>
+        </div>
+        <div class="col-md">
+          <h5 class="title-sm">Platform</h5>
+          <div class="footer-links">
+            <a href="docs/index.md">Developers</a>
+            <a href="https://github.com/vexergy/.github">Community</a>
+            <a href="https://www.kaggle.com/organizations/vexergy">Datasets</a>
+            <a href="notebooks">Lab</a>
+          </div>
         </div>
         </div>
       </div>
@@ -390,7 +468,7 @@
     <button onclick="topFunction()" id="backToTopBtn" title="Back to Top">Top</button>
 
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
 
   </body>
 </html>

@@ -98,18 +98,20 @@ section {
     margin: 16px auto 0 auto;
 }
 
-.product-container { 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     padding-bottom: 100px;
-} 
+}
 
-.product-container img { 
-    margin: 0 20px;
-    max-width: 250px;
-    max-height: 250px;
+.product-container img {
+    margin: 10px;
+    max-width: 150px;
+    max-height: 150px;
     border-radius: 25px;
+    width: calc(100% / 7 - 20px); /* This calculates the width based on 7 images */
 }
 
 .product-container img:first-child {
@@ -120,12 +122,28 @@ section {
     margin-right: 20px;
 }
 
-@media (max-width: 850px) { 
-    .product-container img { 
-        width: calc(100% / 3 - 20px);  
-        max-width: none; 
-        margin: 10px; 
-    } 
+@media (max-width: 1200px) {
+    .product-container img {
+        width: calc(100% / 5 - 20px); /* Adjust width based on 5 images */
+    }
+}
+
+@media (max-width: 850px) {
+    .product-container img {
+        width: calc(100% / 3 - 20px); /* Adjust width based on 3 images */
+    }
+}
+
+@media (max-width: 600px) {
+    .product-container img {
+        width: calc(100% / 2 - 20px); /* Adjust width based on 2 images */
+    }
+}
+
+@media (max-width: 400px) {
+    .product-container img {
+        width: calc(100% - 20px); /* Adjust width for a single image */
+    }
 }
 
 #products {
@@ -165,6 +183,14 @@ section {
     --bs-accordion-btn-icon-width: 50px;
   }
 
+.accordion-button.heat-pump::after { 
+    background-image: #ffffff; 
+} 
+    
+.accordion-button.heat-pump:not(.collapsed)::after { 
+    background-image: url("../images/vexergy-heat-pump.png");
+} 
+
 .accordion-button.vfd::after { 
     background-image: #ffffff; 
 } 
@@ -187,6 +213,30 @@ section {
 
 .accordion-button.fuel:not(.collapsed)::after { 
     background-image: url("../images/vexergy-fuel.png"); 
+}
+
+.accordion-button.water::after { 
+    background-image: #ffffff; 
+} 
+
+.accordion-button.water:not(.collapsed)::after { 
+    background-image: url("../images/vexergy-water.png"); 
+}
+
+.accordion-button.utility-bill::after { 
+    background-image: #ffffff; 
+} 
+
+.accordion-button.utility-bill:not(.collapsed)::after { 
+    background-image: url("../images/vexergy-utility-bill.png"); 
+}
+
+.accordion-button.energy-project::after { 
+    background-image: #ffffff; 
+} 
+
+.accordion-button.energy-project:not(.collapsed)::after { 
+    background-image: url("../images/vexergy-energy-project.png"); 
 }
 
 #services {

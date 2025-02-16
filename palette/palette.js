@@ -61,10 +61,10 @@ function createItem(color, desc) {
 const colorList = [
     { "desc": "Vexergy Primary", "color": "#4ea72e" },
     { "desc": "Vexergy Primary Light", "color": "#60bc3f" },
-    { "desc": "Vexergy Dark Mode", "color": "#212529" },
-    { "desc": "Vexergy Neutral Dark", "color": "#898fa1" },
-    { "desc": "Vexergy Neutral Light", "color": "#f8f9fa" },
-    { "desc": "Monochrome Gray", "color": "#d5d5d5" },
+    { "desc": "Vexergy Primary Dark", "color": "#212529" },
+    { "desc": "Vexergy Secondary Dark", "color": "#2f353b" },
+    { "desc": "Vexergy Neutral Gray", "color": "#898fa1" },
+    { "desc": "Vexergy Off-White", "color": "#f8f9fa" },
     { "desc": "Monochrome Black", "color": "#000000" },
     { "desc": "Monochrome White", "color": "#ffffff" }
 ];

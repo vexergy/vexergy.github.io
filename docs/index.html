@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VexergyAPI Documentation</title>
+    <link rel="icon" type="image/ico" href="../images/vexergy-favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>VexergyAPI Documentation</h1>
+    </header>
+
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#authentication">Authentication</a></li>
+                <li><a href="#endpoints">Endpoints</a></li>
+            </ul>
+        </nav>
+
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Welcome to our API documentation! <strong>VexergyAPI</strong> is a developer-friendly REST API for interacting with the Vexergy™ platform. 
+                It can be used to build applications on top of our products and integrate Vexergy™ with your company's workflow, data pipelines, or existing tools.</p>
+            <p><i><strong>NOTE:</strong> VexergyAPI is not currently available to the public and is under active development. This API reference is only a sample and used for developmental purposes.</i></p>
+        </section>
+
+        <section id="authentication">
+            <h2>Authentication</h2>
+            <p>To use our API, you need to authenticate using an API key. Include the key in your request headers:</p>
+            <pre><code>GET /api/resource
+            Host: api.vexergy.com
+            Authorization: Bearer YOUR_API_KEY</code></pre>
+        </section>
+        <section id="endpoints">
+            <h2>Endpoints</h2>
+            <h3>GET /api/resource</h3>
+            <p>Retrieve a list of resources.</p>
+            <pre><code>GET /api/resource
+            Host: api.vexergy.com
+            Authorization: Bearer YOUR_API_KEY</code></pre>
+
+            <h3>POST /api/resource</h3>
+            <p>Create a new resource.</p>
+            <pre><code>POST /api/resource
+            Host: api.vexergy.com
+            Authorization: Bearer YOUR_API_KEY
+            Content-Type: application/json
+{
+    "name": "Example Resource",
+    "description": "This is an example resource."
+}</code></pre>
+            <h3>PUT /api/resource/:id</h3>
+            <p>Update an existing resource.</p>
+            <pre><code>PUT /api/resource/:id
+            Host: api.vexergy.com
+            Authorization: Bearer YOUR_API_KEY
+            Content-Type: application/json
+{
+    "name": "Updated Resource",
+    "description": "This is an updated resource."
+}</code></pre>
+            <h3>DELETE /api/resource/:id</h3>
+            <p>Delete a resource.</p>
+            <pre><code>DELETE /api/resource/:id
+            Host: api.vexergy.com
+            Authorization: Bearer YOUR_API_KEY</code></pre>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>Copyright © 2023-2025 Vexergy™ - All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

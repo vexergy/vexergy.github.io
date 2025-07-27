@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Vexergy: Energy Data Analytics Platform</title>
+    <title>Vexergy | Modular AMR Platform for Extreme Environments</title>
     <script type="application/ld+json">
       {
         "@context" : "https://schema.org",
@@ -14,461 +14,340 @@
       }
     </script>
     <meta name="google-site-verification" content="gK0_3fHjFBOm3sgS0Agot5W_wx47oTb3wKpFoSl6__w" />
-    <link rel="icon" type="image/ico" href="images/vexergy-favicon.ico">
+    <link rel="icon" type="image/png" href="images/vexergy-favicon.png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script> 
   </head>
 
-  <body data-bs-spy="scroll" data-bs-target=".navbar">
+  <script>
+    const fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap';
+    document.head.appendChild(fontLink);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      const lenis = new Lenis({
+        duration: 1.2,          // scroll speed
+        easing: (t) => t * (2 - t), // ease-out quad
+        smooth: true,
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smoothTouch: true,
+        touchMultiplier: 2,
+        infinite: false,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+
+      const splash = document.getElementById('splash');
+      const homeSection = document.getElementById('home');
+      const element2 = document.getElementById('element2');
+      const element3 = document.getElementById('element3');
+      let element2TypedStarted = false;
+      let element3TypedStarted = false;
+
+      document.body.classList.add('no-scroll');
+
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      if (homeSection) {
+        homeSection.scrollIntoView({ behavior: 'auto' });
+      }
+
+      setTimeout(() => {
+        splash.style.opacity = '0';
+
+        setTimeout(() => {
+          splash.style.display = 'none';
+          document.body.classList.remove('no-scroll');
+
+          new Typed('#element', {
+            strings: ['Modular AMR Platform for Extreme Environments'],
+            typeSpeed: 50,
+            showCursor: false
+          });
+
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                if (entry.target.id === 'element2' && !element2TypedStarted) {
+                  element2TypedStarted = true;
+                  new Typed('#element2', {
+                    strings: ['for applications from space exploration to subsea operations...'],
+                    typeSpeed: 50,
+                    showCursor: false
+                  });
+                }
+
+                if (entry.target.id === 'element3' && !element3TypedStarted) {
+                  element3TypedStarted = true;
+                  new Typed('#element3', {
+                    strings: ['...our modular system of Autonomous Mobile Robots (AMRs) marks a new era in robotics'],
+                    typeSpeed: 50,
+                    showCursor: false
+                  });
+                }
+              }
+            });
+          }, { threshold: 0.5 });
+
+          if (element2) observer.observe(element2);
+          if (element3) observer.observe(element3);
+
+        }, 2000); // fade duration
+      }, 3000); // hold time
+    });
+  </script>
+
+  <body>
+
+    <div id="splash">
+      <div class="logo">VEXERGY</div>
+    </div>
+
     <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
           <a class="navbar-brand" href="#home">
-            <img src="images/vexergy-logo-full.png" alt="Vexergy" width="65" height="50">
+            <img src="images/vexergy-logo-dark.png" alt="Vexergy" height="100">
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                <a class="nav-link" href="#home">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#products">Products</a>
+                <a class="nav-link" href="#mission">Mission</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#services">Services</a>
+                <a class="nav-link" href="#team">Team</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#clients">Clients</a>
+                <a class="nav-link" href="#contact">Contact</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#integrations">Integrations</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#pricing">Pricing</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#about" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  About
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#about">Who We Are</a></li>
-                  <li><a class="dropdown-item" href="#team">Our Team</a></li>
-                  <li><a class="dropdown-item" href="#contact">Contact Us</a></li>
-            </ul>
           </div>
         </div>
       </nav>
-    
-    <section id="home">
+
+      <section id="home">
         <div class="container text-center">
-            <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <h1 class="text-white display-4">Data Analytics as a Service for the Energy Sector</h1>
-                    <p>Pioneering Data-Driven Sustainability & Energy Efficiency</p>
-                    <a href="#products" class="btn btn-brand">Learn More</a>
+          <div class="row justify-content-center">
+            <div class="col-md-10 mt-5">
+              <span id="element"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="home2">
+        <div class="container text-center">
+          <div class="row justify-content-center">
+            <div class="col-md-10 mt-5">
+              <span id="element2"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="home3">
+        <div class="container text-center">
+          <div class="row justify-content-center">
+            <div class="col-md-10 mt-5">
+              <span id="element3"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="mission" class="text-center py-5">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 section-intro mb-4">
+              <h1>Our Mission</h1>
+              <div class="hline"></div>
+            </div>
+            <div class="col-md-8">
+              <p class="mission-content">
+                <strong>Vexergy</strong> is on a mission to develop the modular platform for Autonomous Mobile Robots (AMRs) adaptable for operation in extreme environments.<br><br>
+                Leveraging cutting-edge technology and innovative design, the Vexergy modular robotics system offers hardware and software intended for practical scalability and robust performance in highly unstructured and often time-constrained settings; minimizing risk to human life, streamlining deployment of autonomous systems, and unlocking new opportunities and capabilities across industries ranging from energy, defense, construction, and mining.<br><br>
+                Engineered for general-purpose and specialized applications, our technology excels in hazardous and challenging conditions, from space exploration and subsea operations to polar research and disaster response.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="team" class="text-center py-5">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 section-intro mb-5">
+              <h1>Our Team</h1>
+              <div class="hline"></div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 team-member mb-5">
+              <div class="team-member-image" onclick="openOverlay('jeffrey-laederach-bio')">
+                <div class="team-member-bg" style="background-image: url('images/vexergy-jeffrey-laederach.jpg');"></div>
+                <div class="social-media-icons">
+                  <a href="https://www.linkedin.com/in/jeffrey-laederach"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://github.com/JeffreyLaederach"><i class="bi bi-github"></i></a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="products">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 section-intro">
-            <h1>Our Products</h1>
-            <div class="hline"></div>
-            <p>The Vexergy™ Ecosystem provides a comprehensive suite of data analytics software products, tools, and integrations covering numerous applications across the energy industry.</p>
-            <br> 
-            <div class="ecosystem-container">
-              <img src="images/vexergy-ecosystem.png" alt="Ecosystem">
-            </div>
-            <br>
-            <p>Explore a growing selection of Software as a Service (SaaS) products directly from our web app dashboard. Upload your data and gain valuable insights with the click of a button.
-              Learn more about our flagship modules providing specialized analyses for your energy needs.</p>
-          </div>
-        </div>
-      </div>
-        <div class="product-container">
-            <img src="images/vexergy-heat-pump.png" alt="Heat Pump" class="clickable" data-target="#collapseOne">
-            <img src="images/vexergy-vfd.png" alt="VFD" class="clickable" data-target="#collapseTwo">
-            <img src="images/vexergy-carbon.png" alt="Carbon" class="clickable" data-target="#collapseThree">
-            <img src="images/vexergy-fuel.png" alt="Fuel" class="clickable" data-target="#collapseFour">
-            <img src="images/vexergy-water.png" alt="Fuel" class="clickable" data-target="#collapseFive">
-            <img src="images/vexergy-utility-bill.png" alt="Fuel" class="clickable" data-target="#collapseSix">
-            <img src="images/vexergy-energy-project.png" alt="Fuel" class="clickable" data-target="#collapseSeven">
-        </div>
-        
-        <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button heat-pump" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Heat Pump Efficiency Module
-              </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                Calculate the ideal/actual Coefficient of Performance (COP), Energy Efficiency Ratio (EER), and Seasonal Energy Efficiency Ratio (SEER) of a heat pump system based on thermostat raw data and power consumption.
               </div>
+              <h2 class="member-name">Jeffrey Laederach</h2>
+              <small>Founder & CEO</small>
             </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button vfd collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Variable Frequency Drive (VFD) Savings Module
-              </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                Review critical data regarding VFD operating speed/frequency, power consumption, and equipment loads in a building. Accurately predict future energy savings based on frequency curtailment trends.
+
+            <div class="col-md-3 col-sm-6 team-member mb-5">
+              <div class="team-member-image" onclick="openOverlay('julianna-perucci-bio')">
+                <div class="team-member-bg" style="background-image: url('images/vexergy-julianna-perucci.jpg');"></div>
+                <div class="social-media-icons">
+                  <a href="https://www.linkedin.com/in/julianna-perucci"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://github.com/jperucci"><i class="bi bi-github"></i></a>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button carbon collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Carbon Sequestration Performance Module
-              </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                Determine efficiency and effectiveness of carbon capture devices. Analyze the reduction of greenhouse gas (GHG) emissions and carbon footprint in energy-intensive buildings. Ensure compliance with local CO2 emission laws and avoid penalties.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button fuel collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                Fuel Consumption Module
-              </button>
-            </h2>
-            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                Analyze IoT sensor data for fuel tank levels (oil, propane, diesel, gasoline, etc.) to identify usage rate over time. Predict future fuel consumption based on past trends. Account for seasonal/economic factors impacting fuel use.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button water collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                Water Management Module
-              </button>
-            </h2>
-            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                Explore water usage patterns and consumption rates across reservoirs, aqueducts, treatment plants, pumping stations, and buildings. Identify leaks, monitor water quality, and predict future water usage based on historical data. Ensure compliance with local water conservation laws.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button utility-bill collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                Utility Bill Analysis Module
-              </button>
-            </h2>
-            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                Parse utility bills (electric, natural gas, water, heating oil) to extract key data points, calculate total costs, and analyze trends over time. Identify billing errors, forecast future utility expenses, and determine how to optimize energy usage to reduce costs.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button energy-project collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                Energy Project Evaluation Module
-              </button>
-            </h2>
-            <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                Track the progress and timeline of energy efficiency projects, retrofits, and upgrades. Monitor energy savings, ROI, IRR, NPV, XIRR, XNPV, and payback period. Compare actual results to projected outcomes based on Key Performance Indicators (KPIs).
-              </div>
+              <h2 class="member-name">Julianna Perucci</h2>
+              <small>Co-Founder & COO</small>
             </div>
           </div>
         </div>
-    </section>
 
-    <section id="services">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 section-intro">
-            <h1>Our Services</h1>
-            <div class="hline"></div>
-            <div class="services-container">
-              <img src="images/vexergy-services.png" alt="Services">
-            </div>
+        <div class="member-overlay" id="jeffrey-laederach-bio">
+          <div class="overlay-content">
+            <i class="bi bi-x close-btn" onclick="closeOverlay('jeffrey-laederach-bio')"></i>
+            <h2 class="overlay-title">Jeffrey Laederach</h2>
+            <p>Jeffrey is pursuing a B.S. in Mechanical Engineering at Manhattan University with a concentration in Applied Mathematics and a minor in Business. 
+              He holds dual citizenship of the United States and Switzerland and has experience in energy, automation, and construction at several engineering and technology firms in New York City.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section id="clients">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 section-intro">
-            <h1>Our Clients</h1>
-            <div class="hline"></div>
-            <p>Our solutions are designed to serve energy-related enterprises and institutions across the energy supply chain. From <strong>Utilities, Engineering Firms, Solution Providers, Consultants, Contractors, Building Managers,</strong> and more.</p>
-            <div class="clients-container">
-              <img src="images/vexergy-clients.png" alt="Clients">
-            </div>
+        <div class="member-overlay" id="julianna-perucci-bio">
+          <div class="overlay-content">
+            <i class="bi bi-x close-btn" onclick="closeOverlay('julianna-perucci-bio')"></i>
+            <h2 class="overlay-title">Julianna Perucci</h2>
+            <p>Julianna is pursuing a B.S. in Data Science at Boston University with a minor in Public Health. 
+              She is experienced in machine learning and data analytics and has held positions at Sharp Electronics Corporation and Boston University.</p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="integrations">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 section-intro">
-            <h1>Integrations & Technologies We Use</h1>
-            <div class="hline"></div>
-            <div class="integrations-container">
-              <img src="images/vexergy-integrations.png" alt="Integrations">
-              <p><em>All trademarks, logos, and brand names are the property of their respective owners. All company, product, and service names used in this website are for identification purposes only. 
-                Use of these names, trademarks, and brands does not imply endorsement.</em></p>
-              <p>TensorFlow, the TensorFlow logo and any related marks are trademarks of Google Inc.</p>
-              <p>PyTorch, the PyTorch logo and any related marks are trademarks of The Linux Foundation.</p>
+      <section id="contact" class="text-center py-5">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 section-intro mb-4">
+              <h3>Interested in learning more?</h3>
+            </div>
+            <div class="col-auto d-flex align-items-center">
+                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#contactModal">
+                  Contact Us
+                </button>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="pricing">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 section-intro">
-            <h1>Pricing</h1>
-            <div class="hline"></div>
-            <p>Choose the subscription that is right for your business with our flexible 2-tier pricing model. Note that the Enterprise Subscription pricing will vary depending on the scope of your requirements.</p>
-          </div>
-        </div>
-      </div>
-      <div class="pricing-container">
-        <div class="card-deck mb-3 text-center">
-          <div class="card mb-4 box-shadow">
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Pro</h4>
-            </div>
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title">$49.99 <small class="text-muted">/ mo</small></h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>Access up to 3 Vexergy™ Modules</li>
-                <li>Limited File Upload Size (100MB)</li>
-                <li>Support for Select Integrations</li>
-                <li>Free Access to Docs/Support</li>
-              </ul>
-              <button type="button" class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#contactModal">
-                Get Started
-              </button>
-            </div>
-          </div>
-          <div class="card mb-4 box-shadow">
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Enterprise</h4>
-            </div>
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title">Contact Us</h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>Full Access to All Vexergy™ Modules</li>
-                <li>Upload Files >100MB</li>
-                <li>Vexergy™ SDK & Dev Tools</li>
-                <li>Tailored Software Consultation</li>
-              </ul>
-              <button type="button" class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#contactModal">
-                Contact Us
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 section-intro">
-            <h1>About Us</h1>
-            <div class="hline"></div>
-            <p>At Vexergy™ we strive to apply an engineering approach combined with data science principles to provide data-driven solutions for your energy business. 
-              <strong>Our mission is simple: become the world's leading energy data analytics platform.</strong>
-              Our software ecosystem offers a cost-effective, scalable, and streamlined solution for your specialized data analysis needs without having to outsource to other companies or spend time and money to develop internal tools. 
-              Additionally, you can take advantage of extensive integrations, a flexible subsciption-based pricing model, and secured real-time data processing to maximize your productivity. 
-              Partner with us to use data insights to build a more sustainable, energy-efficient future.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="team" class="row g-0 py-0 text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 section-intro">
-            <h1>Our Team</h1>
-            <div class="hline"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 team-member">
-        <div class="team-member-image">
-          <div class="team-member-bg" style="background-image: url('images/vexergy-jeffrey-laederach.jpg');"></div>
-          <div class="social-media-icons">
-            <a href="https://www.linkedin.com/in/jeffrey-laederach"><i class="bi bi-linkedin" style="font-size: 2rem; color: #ffffff;"></i></a>
-            <a href="https://github.com/JeffreyLaederach"><i class="bi bi-github" style="font-size: 2rem; color: #ffffff;"></i></a>
-          </div>
-        </div>
-        <div class="p-4">
-          <h2 class="title-sm mt-3 mb-0">Jeffrey Laederach</h2>
-          <small>Founder & Product Lead</small>
-          <div class="hline"></div>
-          <p>Pursuing a B.S. in Mechanical Engineering with a concentration in Applied Mathematics at Manhattan University and experienced in Energy Management.</p>
-        </div>
-      </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 team-member">
-        <div class="team-member-image">
-          <div class="team-member-bg" style="background-image: url('images/vexergy-paul-harrison.jpg');"></div>
-          <div class="social-media-icons">
-            <a href="https://www.linkedin.com/in/paul-harrison-electrical-engineer"><i class="bi bi-linkedin" style="font-size: 2rem; color: #ffffff;"></i></a>
-            <a href="https://github.com/PGHarrison05"><i class="bi bi-github" style="font-size: 2rem; color: #ffffff;"></i></a>
-          </div>
-        </div>
-        <div class="p-4">
-          <h2 class="title-sm mt-3 mb-0">Paul Harrison</h2>
-          <small>Sales and Business Operations Lead</small>
-          <div class="hline"></div>
-          <p>Pursuing a B.S. in Electrical Engineering and a minor in Business at Manhattan University, with experience in the Energy Consulting Industry.</p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 team-member">
-        <div class="team-member-image">
-          <div class="team-member-bg" style="background-image: url('images/vexergy-julianna-perucci.jpg');"></div>
-          <div class="social-media-icons">
-            <a href="https://www.linkedin.com/in/julianna-perucci"><i class="bi bi-linkedin" style="font-size: 2rem; color: #ffffff;"></i></a>
-            <a href="https://github.com/jperucci"><i class="bi bi-github" style="font-size: 2rem; color: #ffffff;"></i></a>
-          </div>
-        </div>
-        <div class="p-4">
-          <h2 class="title-sm mt-3 mb-0">Julianna Perucci</h2>
-          <small>Data Science Lead</small>
-          <div class="hline"></div>
-          <p>Pursuing a B.S. in Data Science at Boston University with a minor in Public Health and experienced in Data Analysis and Machine Learning.</p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 team-member team-member-special">
-        <div class="p-4">
-            <h2 class="title-sm mt-3 mb-0"></h2>
-            <div class="hline"></div>
-            <small>Interested in joining our team?</small>
-            <p>We are a fast-paced, dynamic tech startup looking for highly motivated, flexible, and accomplished go-getters. If you are passionate about problem solving, 
-              determined in applying your skills and talents to make a meaningful impact on the world, and value integrity, perseverance, and a strong work ethic, then Vexergy™ is the place for you!</p>
-            <a href="https://www.linkedin.com/company/vexergy/jobs" class="btn btn-brand">Apply Now</a>
-        </div>
-    </div>
-    </section>
-
-    <section id="contact" class="py-5">
-      <div class="container py-4">
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <h3 class="text-white">Transform your energy data analysis <em>today.</em></h3>
-          </div>
-          <div class="col-auto">
-            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#contactModal">
-              Contact Us
-            </button>
-          </div>
-          <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
+      <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="contactModalLabel">Contact Us</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h3 class="modal-title" id="contactModalLabel">Contact Us</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  For all inquiries regarding our software, partnerships, careers, and more, please message us on LinkedIn. Thanks!
+                    <form action="https://formspree.io/f/xpwldewy" method="POST">
+                        <div class="mb-3">
+                            <label for="name" class="form-label" style="font-size: 1.5rem;">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label" style="font-size: 1.5rem;">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label" style="font-size: 1.5rem;">Subject:</label>
+                            <input type="text" class="form-control" id="subject" name="subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label" style="font-size: 1.5rem;">Message:</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-light">Send</button>
+                    </form>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-brand" data-bs-dismiss="modal">Close</button>
-                </div>
-              </div>
             </div>
           </div>
-        </div>
       </div>
-    </section>
 
-    <footer>
-      <div class="footer-top">
+      <footer class="footer">
         <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="images/vexergy-logo-full.png" alt="Vexergy">
-              <p>Data Analytics as a Service for the Energy Sector</p>
-              <div class="social-media-icons">
-                <a href="https://www.linkedin.com/company/vexergy"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
-                <a href="https://github.com/vexergy"><i class="bi bi-github" style="font-size: 2rem;"></i></a>
-                <a href="https://www.facebook.com/vexergy"><i class="bi bi-facebook" style="font-size: 2rem;"></i></a>
-                <a href="https://www.youtube.com/@vexergy"><i class="bi bi-youtube" style="font-size: 2rem;"></i></a>
-                <a href="https://vimeo.com/vexergy"><i class="bi bi-vimeo" style="font-size: 2rem;"></i></a>
-                <a href="https://www.reddit.com/user/vexergy"><i class="bi bi-reddit" style="font-size: 2rem;"></i></a>
-                <a href="https://vexergy.slack.com"><i class="bi bi-slack" style="font-size: 2rem;"></i></a>
-                <a href="https://dev.to/vexergy" class="dev-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path class="icon-path" fill="#000000" d="M120.1 208.3c-3.9-2.9-7.8-4.4-11.7-4.4H91v104.5h17.5c3.9 0 7.8-1.5 11.7-4.4 3.9-2.9 5.8-7.3 5.8-13.1v-69.7c0-5.8-2-10.2-5.8-13.1zM404.1 32H43.9C19.7 32 .1 51.6 0 75.8v360.4C.1 460.4 19.7 480 43.9 480h360.2c24.2 0 43.8-19.6 43.9-43.8V75.8c-.1-24.2-19.7-43.8-43.9-43.8zM154.2 291.2c0 18.8-11.6 47.3-48.4 47.3h-46.4V173h47.4c35.4 0 47.4 28.5 47.4 47.3l0 70.9zm100.7-88.7H201.6v38.4h32.6v29.6H201.6v38.4h53.3v29.6h-62.2c-11.2 .3-20.4-8.5-20.7-19.7V193.7c-.3-11.2 8.6-20.4 19.7-20.7h63.2l0 29.5zm103.6 115.3c-13.2 30.8-36.9 24.6-47.4 0l-38.5-144.8h32.6l29.7 113.7 29.6-113.7h32.6l-38.5 144.8z"/></svg>
-                </a>
-              </div>
-            
+          <div class="footer-content">
+            <div class="social-icons">
+              <a href="https://www.linkedin.com/company/vexergy"><i class="bi bi-linkedin"></i></a>
+              <a href="https://github.com/vexergy"><i class="bi bi-github"></i></a>
+              <a href="https://www.facebook.com/vexergy"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.youtube.com/@vexergy"><i class="bi bi-youtube"></i></a>
+              <a href="https://vimeo.com/vexergy"><i class="bi bi-vimeo"></i></a>
             </div>
-            <div class="col-md">
-              <h5 class="title-sm">Overview</h5>
-              <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#products">Products</a>
-                <a href="#services">Services</a>
-                <a href="#clients">Clients</a>
-                <a href="#integrations">Integrations</a>
-                <a href="#pricing">Pricing</a>
-              </div>
-          </div>
-          <div class="col-md">
-            <h5 class="title-sm">Company</h5>
-            <div class="footer-links">
-              <a href="#about">About</a>
-              <a href="#team">Team</a>
-              <a href="#contact">Contact</a>
-              <a href="https://www.linkedin.com/company/vexergy/jobs">Careers</a>
-              <a href="palette/index.html">Palette</a>
-              <a href="brand/index.html">Brand</a>
+            <div class="copyright">
+              &copy; Copyright 2025 Vexergy. All rights reserved.
             </div>
-        </div>
-        <div class="col-md">
-          <h5 class="title-sm">Platform</h5>
-          <div class="footer-links">
-            <a href="docs/index.html">Developers</a>
-            <a href="https://github.com/vexergy/.github">Community</a>
-            <a href="https://www.kaggle.com/organizations/vexergy">Datasets</a>
-            <a href="notebooks">Lab</a>
           </div>
         </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="container">
-          <div class="row justify-content-between">
-           <div class="col-md-6">
-            <p class="mb-0">Copyright © 2023-2025 Vexergy™ - All Rights Reserved.</p>
-           </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <button onclick="topFunction()" id="backToTopBtn" title="Back to Top">Top</button>
+      </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+      function openOverlay(id) {
+        const overlay = document.getElementById(id);
+        overlay.style.display = 'flex';
+
+        overlay.addEventListener('click', function handler(event) {
+          if (event.target === overlay) {
+            overlay.style.display = 'none';
+            overlay.removeEventListener('click', handler);
+          }
+        });
+      }
+
+      function closeOverlay(id) {
+        document.getElementById(id).style.display = 'none';
+      }
+
+      document.addEventListener('scroll', function () {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+        let currentSectionId = '';
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            currentSectionId = section.id;
+          }
+        });
+
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${currentSectionId}`) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      });
+    </script>
 
   </body>
 </html>

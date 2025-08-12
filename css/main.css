@@ -3,8 +3,7 @@ html, body {
 }
 
 .bg-body-tertiary {
-  --bs-bg-opacity: 1;
-  background-color: #000000 !important;
+  background-color: transparent !important;
 }
 
 .navbar-toggler {
@@ -19,8 +18,48 @@ html, body {
   margin-right: 40px;
 }
 
-.navbar-brand img {
-  height: 100px;
+button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+}
+
+.vexergy-text {
+  font-family: 'Bruno Ace', sans-serif;
+  background-color: transparent;
+  color: #fc5400;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-left: 20px;
+}
+
+@media (max-width: 576px) {
+  .vexergy-text {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    margin-left: 10px;
+  }
+}
+
+.vexergy-text:hover {
+  color: #ffffff;
+  transition: color 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -80,38 +119,6 @@ body.no-scroll {
   text-align: center;
   max-width: 100%;
   box-sizing: border-box;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 12px;
-  margin-top: 80px;
-}
-
-#element2 {
-  font-family: 'Bruno Ace', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 500;
-  color: #ffffff !important;
-  display: inline-block;
-  padding: 15px;
-  text-align: center;
-  max-width: 100%;
-  box-sizing: border-box;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 12px;
-  margin-top: 80px;
-}
-
-#element3 {
-  font-family: 'Bruno Ace', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 500;
-  color: #ffffff !important;
-  display: inline-block;
-  padding: 15px;
-  text-align: center;
-  max-width: 100%;
-  box-sizing: border-box;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 12px;
   margin-top: 80px;
 }
 
@@ -127,7 +134,8 @@ body.no-scroll {
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
   text-decoration: underline;
-  color: #ffffff;
+  color: #fc5400;
+  transition: color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -164,37 +172,20 @@ section {
 }
 
 #home {
-  background: #000000 url(../images/mars-surface.jpg) repeat 0 0;
+  background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.95)),
+    url(../images/vexergy-website-top.png) no-repeat center center;
   min-height: 100vh;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   display: flex;
-  align-items: flex-start;
-}
-
-#home2 {
-  background: #000000 url(../images/deep-sea.jpg) repeat 0 0;
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  display: flex;
-  align-items: flex-start;
-}
-
-#home3 {
-  background: #000000 url(../images/polar-terrain.jpg) repeat 0 0;
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  display: flex;
+  position: relative;
   align-items: flex-start;
 }
 
 #mission,
-#team {
+#team,
+#contact {
   scroll-margin-top: 120px;
   padding-top: 60px;
 }
@@ -217,6 +208,12 @@ section {
   line-height: 1.8;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+#myChart {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
 }
 
 .section-intro {
@@ -310,7 +307,8 @@ section {
 }
 
 .social-media-icons i:hover {
-  color: #cccccc;
+  color: #fc5400;
+  transition: color 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -337,7 +335,7 @@ section {
   margin-bottom: 15px;
   font-size: 1.6rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #fc5400;
 }
 
 .overlay-content {
@@ -363,8 +361,9 @@ section {
 }
 
 #contact {
-  background-color: #000000;
+  background-color: transparent;
   color: #ffffff;
+  margin-top: 7rem;
 }
 
 #contact h3 {
@@ -420,14 +419,15 @@ section {
 }
 
 .footer {
-  background-color: #000000;
+  background-color: transparent;
   color: #ffffff;
   padding: 1.5rem 0;
   font-size: 0.95rem;
+  margin-top: 37rem;
 }
 
 .footer a {
-  color: #ffffff;
+  color: #fc5400;
   margin-right: 1rem;
   font-size: 1.5rem;
   transition: color 0.3s ease, transform 0.3s ease;
@@ -438,7 +438,8 @@ section {
 }
 
 .footer a:hover {
-  color: #cccccc;
+  color: #ffffff;
+  transition: color 0.3s ease;
 }
 
 .footer-content {
@@ -475,4 +476,14 @@ section {
   .copyright {
     width: 100%;
   }
+}
+
+.bottom-bg-wrapper {
+  background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.05)),
+    url(../images/vexergy-website-bottom.png) no-repeat center center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  align-items: flex-start;
 }

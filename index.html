@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Vexergy | Modular AMR Platform for Extreme Environments</title>
+    <title>Vexergy | Sustainable Deep-Sea Mining Systems</title>
     <script type="application/ld+json">
       {
         "@context" : "https://schema.org",
@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script> 
+    <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <script>
@@ -49,10 +50,6 @@
 
       const splash = document.getElementById('splash');
       const homeSection = document.getElementById('home');
-      const element2 = document.getElementById('element2');
-      const element3 = document.getElementById('element3');
-      let element2TypedStarted = false;
-      let element3TypedStarted = false;
 
       document.body.classList.add('no-scroll');
 
@@ -72,54 +69,23 @@
           document.body.classList.remove('no-scroll');
 
           new Typed('#element', {
-            strings: ['Modular AMR Platform for Extreme Environments'],
+            strings: ['Sustainable Deep-Sea Mining Systems'],
             typeSpeed: 50,
             showCursor: false
           });
-
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                if (entry.target.id === 'element2' && !element2TypedStarted) {
-                  element2TypedStarted = true;
-                  new Typed('#element2', {
-                    strings: ['for applications from space exploration to subsea operations...'],
-                    typeSpeed: 50,
-                    showCursor: false
-                  });
-                }
-
-                if (entry.target.id === 'element3' && !element3TypedStarted) {
-                  element3TypedStarted = true;
-                  new Typed('#element3', {
-                    strings: ['...our modular system of Autonomous Mobile Robots (AMRs) marks a new era in robotics'],
-                    typeSpeed: 50,
-                    showCursor: false
-                  });
-                }
-              }
-            });
-          }, { threshold: 0.5 });
-
-          if (element2) observer.observe(element2);
-          if (element3) observer.observe(element3);
-
         }, 2000); // fade duration
       }, 3000); // hold time
     });
   </script>
 
   <body>
-
     <div id="splash">
       <div class="logo">VEXERGY</div>
     </div>
 
     <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid d-flex justify-content-between align-items-center">
-          <a class="navbar-brand" href="#home">
-            <img src="images/vexergy-logo-dark.png" alt="Vexergy" height="100">
-          </a>
+          <a class="navbar-brand vexergy-text" href="#home">VEXERGY</a>
           <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -151,26 +117,6 @@
         </div>
       </section>
 
-      <section id="home2">
-        <div class="container text-center">
-          <div class="row justify-content-center">
-            <div class="col-md-10 mt-5">
-              <span id="element2"></span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="home3">
-        <div class="container text-center">
-          <div class="row justify-content-center">
-            <div class="col-md-10 mt-5">
-              <span id="element3"></span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="mission" class="text-center py-5">
         <div class="container">
           <div class="row justify-content-center">
@@ -180,9 +126,114 @@
             </div>
             <div class="col-md-8">
               <p class="mission-content">
-                <strong>Vexergy</strong> is on a mission to develop the modular platform for Autonomous Mobile Robots (AMRs) adaptable for operation in extreme environments.<br><br>
-                Leveraging cutting-edge technology and innovative design, the Vexergy modular robotics system offers hardware and software intended for practical scalability and robust performance in highly unstructured and often time-constrained settings; minimizing risk to human life, streamlining deployment of autonomous systems, and unlocking new opportunities and capabilities across industries ranging from energy, defense, construction, and mining.<br><br>
-                Engineered for general-purpose and specialized applications, our technology excels in hazardous and challenging conditions, from space exploration and subsea operations to polar research and disaster response.
+                <strong>Vexergy</strong> is pioneering a new generation of AI-powered Subsea Mining Vehicles (SMVs) equipped with a state-of-the-art electromagnetic collection apparatus for sustainable extraction of polymetallic nodules on the ocean floor.<br><br>
+                Our novel method uses electromagnets to extract mineral nodules from the seafloor. 
+                This is possible due to the presence of ferromagnetic materials in the nodules including <em>iron</em>, <em>nickel</em>, and <em>cobalt</em> as well as <em>biogenic magnetite</em> (Fe3O4) produced by magnetotactic bacteria found in the low-oxygen microenvironments of the deep sea. 
+                This technique minimizes environmental impact by avoiding the creation of large sediment plumes frequently caused by traditional hydraulic suction dredges; therefore allowing for precision harvesting and minimal disturbances to the seabed and surrounding ecosystems.
+              </p>
+            </div>
+            <div id="chartContainer" style="
+              max-width: 1000px;
+              margin: 0 auto;
+              padding: 20px;
+            ">
+              <canvas id="myChart"></canvas>
+            </div>
+            <script>
+              let chartInitialized = false;
+
+              const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting && !chartInitialized) {
+                    chartInitialized = true;
+
+                    const ctx = document.getElementById('myChart').getContext('2d');
+
+                    new Chart(ctx, {
+                      type: 'bar',
+                      data: {
+                        labels: ['Manganese', 'Iron', 'Silicon', 'Aluminum', 'Nickel', 'Copper', 'Cobalt', 'Titanium'],
+                        datasets: [{
+                          data: [29, 6, 5, 3, 1.4, 1.3, 0.25, 0.20],
+                          backgroundColor: 'rgba(252, 84, 0)',
+                          borderWidth: 0
+                        }]
+                      },
+                      options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        animation: {
+                          duration: 3000,
+                          easing: 'easeOutQuart'
+                        },
+                        plugins: {
+                          title: {
+                            display: true,
+                            text: 'Typical Deep-Sea Polymetallic Nodule',
+                            color: 'white',
+                            font: {
+                              size: 18,
+                              weight: 'bold'
+                            },
+                            padding: {
+                              top: 10,
+                              bottom: 20
+                            }
+                          },
+                          legend: {
+                            display: false
+                          },
+                          tooltip: {
+                            enabled: false
+                          }
+                        },
+                        scales: {
+                          x: {
+                            title: {
+                              display: true,
+                              text: '% Composition',
+                              color: 'white',
+                              font: {
+                                size: 16,
+                                weight: 'bold'
+                              }
+                            },
+                            ticks: {
+                              color: 'white'
+                            },
+                            grid: {
+                              color: 'rgba(255,255,255,0.1)'
+                            }
+                          },
+                          y: {
+                            ticks: {
+                              color: 'white',
+                              font: {
+                                size: 14,
+                                weight: 'bold'
+                              }
+                            },
+                            grid: {
+                              color: 'rgba(255,255,255,0.1)'
+                            }
+                          }
+                        }
+                      }
+                    });
+
+                    observer.unobserve(entry.target);
+                  }
+                });
+              }, {
+                threshold: 0.3
+              });
+
+              observer.observe(document.getElementById('myChart'));
+            </script>
+            <div class="col-md-8">
+              <p class="mission-content">
+                Polymetallic nodules are comprised of numerous critical minerals that are vital to the production of cutting-edge technologies including EV batteries, solar panels, GPUs, jet engines, and wind turbines; powering industries ranging from energy, aerospace and defense, and manufacturing.<br><br>
+                Our robotic mining machines utilize AI to autonomously operate and navigate on the seafloor while combining real-time control and sensing capabilities to adapt to environmental conditions; detecting changes in topography, marine life, and mineral deposits.
               </p>
             </div>
           </div>
@@ -228,7 +279,7 @@
             <i class="bi bi-x close-btn" onclick="closeOverlay('jeffrey-laederach-bio')"></i>
             <h2 class="overlay-title">Jeffrey Laederach</h2>
             <p>Jeffrey is pursuing a B.S. in Mechanical Engineering at Manhattan University with a concentration in Applied Mathematics and a minor in Business. 
-              He holds dual citizenship of the United States and Switzerland and has experience in energy, automation, and construction at several engineering and technology firms in New York City.</p>
+              He holds dual citizenship of the United States and Switzerland and has experience in energy, construction, and industrial automation at several engineering and technology firms in NYC.</p>
           </div>
         </div>
 
@@ -242,69 +293,71 @@
         </div>
       </section>
 
-      <section id="contact" class="text-center py-5">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12 section-intro mb-4">
-              <h3>Interested in learning more?</h3>
-            </div>
-            <div class="col-auto d-flex align-items-center">
-                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#contactModal">
-                  Contact Us
-                </button>
+      <div class="bottom-bg-wrapper">
+        <section id="contact" class="text-center py-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-12 section-intro mb-4">
+                <h3>Interested in learning more?</h3>
+              </div>
+              <div class="col-auto d-flex align-items-center">
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#contactModal">
+                    Contact Us
+                  </button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="contactModalLabel">Contact Us</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="https://formspree.io/f/xpwldewy" method="POST">
-                        <div class="mb-3">
-                            <label for="name" class="form-label" style="font-size: 1.5rem;">Name:</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label" style="font-size: 1.5rem;">Email:</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="subject" class="form-label" style="font-size: 1.5rem;">Subject:</label>
-                            <input type="text" class="form-control" id="subject" name="subject" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label" style="font-size: 1.5rem;">Message:</label>
-                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-light">Send</button>
-                    </form>
-                </div>
+        <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h3 class="modal-title" id="contactModalLabel">Contact Us</h3>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <form action="https://formspree.io/f/xpwldewy" method="POST">
+                          <div class="mb-3">
+                              <label for="name" class="form-label" style="font-size: 1.5rem;">Name:</label>
+                              <input type="text" class="form-control" id="name" name="name" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="email" class="form-label" style="font-size: 1.5rem;">Email:</label>
+                              <input type="email" class="form-control" id="email" name="email" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="subject" class="form-label" style="font-size: 1.5rem;">Subject:</label>
+                              <input type="text" class="form-control" id="subject" name="subject" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="message" class="form-label" style="font-size: 1.5rem;">Message:</label>
+                              <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                          </div>
+                          <button type="submit" class="btn btn-light">Send</button>
+                      </form>
+                  </div>
+              </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+          <div class="container">
+            <div class="footer-content">
+              <div class="social-icons">
+                <a href="https://www.linkedin.com/company/vexergy"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/vexergy"><i class="bi bi-github"></i></a>
+                <a href="https://www.facebook.com/vexergy"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.youtube.com/@vexergy"><i class="bi bi-youtube"></i></a>
+                <a href="https://vimeo.com/vexergy"><i class="bi bi-vimeo"></i></a>
+              </div>
+              <div class="copyright">
+                &copy; Copyright 2025 Vexergy. All rights reserved.
+              </div>
             </div>
           </div>
+        </footer>
       </div>
-
-      <footer class="footer">
-        <div class="container">
-          <div class="footer-content">
-            <div class="social-icons">
-              <a href="https://www.linkedin.com/company/vexergy"><i class="bi bi-linkedin"></i></a>
-              <a href="https://github.com/vexergy"><i class="bi bi-github"></i></a>
-              <a href="https://www.facebook.com/vexergy"><i class="bi bi-facebook"></i></a>
-              <a href="https://www.youtube.com/@vexergy"><i class="bi bi-youtube"></i></a>
-              <a href="https://vimeo.com/vexergy"><i class="bi bi-vimeo"></i></a>
-            </div>
-            <div class="copyright">
-              &copy; Copyright 2025 Vexergy. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
@@ -348,6 +401,5 @@
         });
       });
     </script>
-
   </body>
 </html>

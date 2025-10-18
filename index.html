@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <script>
@@ -132,114 +131,9 @@
                 These resources play are pivotal in powering industries ranging from energy, aerospace/defense, and manufacturing. 
               </p>
             </div>
-            <div id="chartContainer" style="
-              max-width: 1000px;
-              margin: 0 auto;
-              padding: 20px;
-            ">
-              <canvas id="myChart"></canvas>
-            </div>
-            <script>
-              let chartInitialized = false;
-
-              const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                  if (entry.isIntersecting && !chartInitialized) {
-                    chartInitialized = true;
-
-                    const ctx = document.getElementById('myChart').getContext('2d');
-
-                    new Chart(ctx, {
-                      type: 'bar',
-                      data: {
-                        labels: ['Manganese', 'Iron', 'Silicon', 'Aluminum', 'Nickel', 'Copper', 'Cobalt', 'Titanium'],
-                        datasets: [{
-                          data: [29, 6, 5, 3, 1.4, 1.3, 0.25, 0.20],
-                          backgroundColor: 'rgba(252, 84, 0)',
-                          borderWidth: 0
-                        }]
-                      },
-                      options: {
-                        indexAxis: 'y',
-                        responsive: true,
-                        animation: {
-                          duration: 3000,
-                          easing: 'easeOutQuart'
-                        },
-                        plugins: {
-                          title: {
-                            display: true,
-                            text: 'Typical Deep-Sea Polymetallic Nodule',
-                            color: 'white',
-                            font: {
-                              size: 18,
-                              weight: 'bold'
-                            },
-                            padding: {
-                              top: 10,
-                              bottom: 20
-                            }
-                          },
-                          legend: {
-                            display: false
-                          },
-                          tooltip: {
-                            enabled: false
-                          }
-                        },
-                        scales: {
-                          x: {
-                            title: {
-                              display: true,
-                              text: '% Composition',
-                              color: 'white',
-                              font: {
-                                size: 16,
-                                weight: 'bold'
-                              }
-                            },
-                            ticks: {
-                              color: 'white'
-                            },
-                            grid: {
-                              color: 'rgba(255,255,255,0.1)'
-                            }
-                          },
-                          y: {
-                            ticks: {
-                              color: 'white',
-                              font: {
-                                size: 14,
-                                weight: 'bold'
-                              }
-                            },
-                            grid: {
-                              color: 'rgba(255,255,255,0.1)'
-                            }
-                          }
-                        }
-                      }
-                    });
-
-                    observer.unobserve(entry.target);
-                  }
-                });
-              }, {
-                threshold: 0.3
-              });
-
-              observer.observe(document.getElementById('myChart'));
-            </script>
             <div class="col-md-8">
               <p class="mission-content">
                 Our novel and comprehensive deep-sea mining system combines three primary components: an Autonomous Surface Vehicle (ASV) providing power and communications, a Subsea Mining Vehicle (SMV) equipped with our state-of-the-art precision harvesting apparatus, and our reusable Autonomous Underwater Vehicle (AUV) fleet for transporting payloads to the surface.
-              </p>
-            </div>
-            <div class="col-md-8">
-              <img src="images/vexergy-system-overview-diagram.png" alt="Vexergy System Overview Diagram" class="img-fluid my-4" style="display: block; margin: 0 auto;">
-            </div>
-            <div class="col-md-8">
-              <p class="mission-content">
                 Enabled by onboard AI, advanced computer vision, and real-time sensing capabilities, our robotic mining machines operate fully autonomously; adapting to environmental conditions by detecting changes in topography, marine life, and mineral deposits. 
                 With operational and environmental sustainability at the core of our mission, this intelligent system maximizes production output, reduces overhead costs, and minimizes disturbances to the seabed and surrounding ecosystems which are sensitive to sediment plumes and noise pollution.
               </p>
@@ -275,7 +169,10 @@
             <i class="bi bi-x close-btn" onclick="closeOverlay('jeffrey-laederach-bio')"></i>
             <h2 class="overlay-title">Jeffrey Laederach</h2>
             <p>Jeffrey is pursuing a B.S. in Mechanical Engineering at Manhattan University with a concentration in Applied Mathematics and a minor in Business. 
-              He holds dual citizenship of the United States and Switzerland and has experience in energy, construction, and industrial automation at several engineering and technology firms in NY/NJ.</p>
+              He holds dual citizenship of the United States and Switzerland and has experience with software, automation, and project management in the energy industry. 
+              Jeffrey is passionate about supporting American Re-Industrialization with sustainable and innovative technology solutions. 
+              With a strong focus on critical infrastructure and critical minerals, he aims to help secure and rebuild the West's supply chain.</p>
+              <p><a href="mailto:jlaederach@vexergy.com">jlaederach@vexergy.com</a></p>
           </div>
         </div>
       </section>

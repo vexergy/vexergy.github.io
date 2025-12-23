@@ -42,7 +42,7 @@ button:focus:not(:focus-visible) {
 .vexergy-text {
   font-family: 'Bruno Ace', sans-serif;
   background-color: transparent;
-  color: #fc5400;
+  color: #ffffff;
   font-size: 2rem;
   font-weight: 500;
   letter-spacing: 2px;
@@ -58,7 +58,7 @@ button:focus:not(:focus-visible) {
 }
 
 .vexergy-text:hover {
-  color: #ffffff;
+  color: #ffffff88;
   transition: color 0.3s ease;
 }
 
@@ -134,7 +134,7 @@ body.no-scroll {
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
   text-decoration: underline;
-  color: #fc5400;
+  color: #ffffff88;
   transition: color 0.3s ease;
 }
 
@@ -183,24 +183,24 @@ section {
   align-items: flex-start;
 }
 
-#mission,
+#about,
 #team,
 #contact {
   scroll-margin-top: 120px;
   padding-top: 60px;
 }
 
-#mission {
+#about {
   background-color: #000000;
   color: #ffffff;
 }
 
-#mission h1 {
+#about h1 {
   font-family: 'Bruno Ace', sans-serif;
   font-weight: 500;
 }
 
-.mission-content {
+.about-content {
   background-color: #000000;
   color: #ffffff;
   text-align: center;
@@ -301,7 +301,7 @@ section {
 }
 
 .social-media-icons i:hover {
-  color: #fc5400;
+  color: #ffffff88;
   transition: color 0.3s ease;
 }
 
@@ -329,7 +329,7 @@ section {
   margin-bottom: 15px;
   font-size: 1.6rem;
   font-weight: 700;
-  color: #fc5400;
+  color: #ffffff;
 }
 
 .overlay-content {
@@ -361,7 +361,7 @@ section {
 }
 
 .member-overlay a[href^="mailto:"]:hover {
-  color: #fc5400;
+  color: #ffffff88;
 }
 
 #contact {
@@ -431,7 +431,7 @@ section {
 }
 
 .footer a {
-  color: #fc5400;
+  color: #ffffff;
   margin-right: 1rem;
   font-size: 1.5rem;
   transition: color 0.3s ease, transform 0.3s ease;
@@ -442,7 +442,7 @@ section {
 }
 
 .footer a:hover {
-  color: #ffffff;
+  color: #ffffff88;
   transition: color 0.3s ease;
 }
 

@@ -28,10 +28,9 @@
     document.head.appendChild(fontLink);
 
     document.addEventListener('DOMContentLoaded', () => {
-      
       const lenis = new Lenis({
-        duration: 1.2,          // scroll speed
-        easing: (t) => t * (2 - t), // ease-out quad
+        duration: 1.2,
+        easing: (t) => t * (2 - t),
         smooth: true,
         direction: 'vertical',
         gestureDirection: 'vertical',
@@ -44,13 +43,13 @@
         lenis.raf(time);
         requestAnimationFrame(raf);
       }
-
       requestAnimationFrame(raf);
 
       const splash = document.getElementById('splash');
       const homeSection = document.getElementById('home');
 
       document.body.classList.add('no-scroll');
+      lenis.stop();
 
       if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
@@ -65,15 +64,17 @@
 
         setTimeout(() => {
           splash.style.display = 'none';
+
           document.body.classList.remove('no-scroll');
+          lenis.start();
 
           new Typed('#element', {
             strings: ['Sustainable Deep-Sea Mining Systems'],
             typeSpeed: 50,
             showCursor: false
           });
-        }, 2000); // fade duration
-      }, 3000); // hold time
+        }, 2000);
+      }, 3000);
     });
   </script>
 
@@ -95,9 +96,6 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#about">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#team">Team</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#contact">Contact</a>
